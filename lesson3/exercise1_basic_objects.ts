@@ -4,11 +4,29 @@ Create your own vehicle object, which has the following properties 
     tireCount – 6 
     capacity – 5 tons 
 */
-let vehicle = {
+interface Vehicle {
+  type: string;
+  tireCount: number;
+  capacity: string;
+}
+
+let vehicle: Vehicle = {
   type: "truck",
   tireCount: 6,
   capacity: "5 tons",
 };
+
+let unicycle: Vehicle = {
+  type: "unicycle",
+  tireCount: 1,
+  capacity: "1 person + backbag",
+};
+
+// Write a function to calculate the sum of tireCount
+// of two vehicles given as parameters
+function calculateTireCount(a: Vehicle, b: Vehicle) {
+  return a.tireCount + b.tireCount;
+}
 
 /* Use console log to print the capacity of the vehicle object */
 console.log(vehicle.capacity);

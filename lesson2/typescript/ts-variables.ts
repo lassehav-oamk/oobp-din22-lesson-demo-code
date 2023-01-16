@@ -1,4 +1,3 @@
-
 /* Inferring types */
 let hello = "Hello World";
 console.log(hello);
