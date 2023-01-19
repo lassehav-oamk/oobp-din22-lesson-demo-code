@@ -28,7 +28,12 @@ class Course {
     this.students.push(student);
   }
 
-  removeStudent(student: Student) {}
+  removeStudent(student: Student) {
+    let index = this.students.indexOf(student);
+    if (index !== -1) {
+      this.students.splice(index, 1);
+    }
+  }
 
   // print out the students in this course
   getStudents() {}
@@ -55,4 +60,8 @@ mathCourse.addStudent(studentJohn);
 mathCourse.addStudent(studentTed);
 englishCourse.addStudent(studentJane);
 
-console.log(englishCourse);
+console.log(mathCourse);
+
+mathCourse.removeStudent(studentTed);
+
+console.log(mathCourse);
