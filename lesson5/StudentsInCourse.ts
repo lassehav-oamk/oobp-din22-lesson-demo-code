@@ -26,6 +26,7 @@ class Course {
 
   addStudent(student: Student) {
     this.students.push(student);
+    student.addCourse(this);
   }
 
   removeStudent(student: Student) {
@@ -35,6 +36,10 @@ class Course {
     }
   }
 
+  getName() {
+    return this.name;
+  }
+
   // print out the students in this course
   getStudents() {}
 }
@@ -42,10 +47,17 @@ class Course {
 class Student {
   name: string;
   email: string;
+  courses: string[];
 
   constructor(name: string, email: string) {
     this.name = name;
     this.email = email;
+    this.courses = [];
+  }
+
+  // Add functionality to store the courses the student is enrolled in
+  addCourse(course: Course) {
+    this.courses.push(course.getName());
   }
 }
 
@@ -59,9 +71,8 @@ const englishCourse = new Course("English", 20, "2021-01-01", "2021-05-01");
 mathCourse.addStudent(studentJohn);
 mathCourse.addStudent(studentTed);
 englishCourse.addStudent(studentJane);
+englishCourse.addStudent(studentJohn);
 
 console.log(mathCourse);
 
-mathCourse.removeStudent(studentTed);
-
-console.log(mathCourse);
+console.log(studentJohn);
