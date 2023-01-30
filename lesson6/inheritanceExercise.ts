@@ -16,6 +16,6 @@
     Birds should also store how many wings they have.
     Sea animals should also store how many fins they have.
 
-    Create a class for each animal type, and make sure they all 
+    Create necessary classes and make sure they all 
     inherit from the same base class.
 */
