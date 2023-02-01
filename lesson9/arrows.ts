@@ -1,4 +1,4 @@
-/* Example */
+/* Example for arrow code */
 function sumOfThree(a: number, b: number, c: number): number {
   return a + b + c;
 }
