@@ -1,5 +1,6 @@
 /* Example for arrow code */
-function sumOfThree(a: number, b: number, c: number): number {
+/* Here the teacher has made some change at line 2 */
+function sumOfThreee(a: number, b: number, c: number): number {
   return a + b + c;
 }
 
