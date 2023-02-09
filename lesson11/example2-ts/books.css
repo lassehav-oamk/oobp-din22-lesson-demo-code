@@ -1,0 +1,23 @@
+.book-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px #ccc;
+}
+
+.book img {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
