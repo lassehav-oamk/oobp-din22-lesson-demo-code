@@ -26,15 +26,11 @@
   <body>
     <h1>Hello JS DOM World</h1>
 
-    <div id="firstBox" class="box">
-      This is the first box
-    </div>
+    <div id="firstBox" class="box">This is the first box</div>
 
-    <div id="secondBox" class="box">
-      This is the second box
-    </div>
+    <div id="secondBox" class="box">This is the second box</div>
 
-    <div class="list"> 
+    <div class="list">
       Shopping List
       <ul id="shoppingList">
         <li>Banana</li>
@@ -43,5 +39,19 @@
         <li>Tomatos</li>
       </ul>
     </div>
+    <script>
+      document.getElementById("firstBox").innerText = "Modified!";
+
+      document.querySelector("h1").innerText += " - Exercise 2 done!";
+
+      const boxes = document.getElementsByClassName("box");
+      for (let i = 0; i < boxes.length; i++) {
+        boxes[i].style.backgroundColor = "black";
+      }
+
+      //document.querySelector(".list").style.borderStyle = "solid";
+      //document.querySelector(".list").style.borderWidth = "10px";
+      document.querySelector(".list").style.border = "10px solid green";
+    </script>
   </body>
 </html>
