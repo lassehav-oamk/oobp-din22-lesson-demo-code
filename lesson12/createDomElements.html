@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <h1>Creating DOM elements</h1>
+    <button>Create a new element</button>
+    <div>
+      <h2>Second heading</h2>
+      <div>
+        <ul>
+          <li>Banana</li>
+          <li>Apple</li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      let addButton = document.querySelector("button");
+      addButton.addEventListener("click", addPineapple);
+
+      function addPineapple() {
+        let pineappleListItem = document.createElement("li");
+        pineappleListItem.textContent = "Pineapple";
+
+        let ulElement = document.querySelector("ul");
+        ulElement.appendChild(pineappleListItem);
+      }
+    </script>
+  </body>
+</html>
