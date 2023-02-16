@@ -3,9 +3,11 @@
   <head></head>
   <body>
     <h1>Creating DOM elements</h1>
-    <button>Create a new element</button>
-    <div>
-      <h2>Second heading</h2>
+    <button>Create a new pineapple element to the list</button>
+    <div style="margin-top: 40px">
+      <input id="listText" type="text" /><button onclick="addToList()">
+        Add to list
+      </button>
       <div>
         <ul>
           <li>Banana</li>
@@ -16,17 +18,61 @@
         When the user clicks the button, your own name should be added inside the div
         next to the button
       -->
+      <div id="nameElement">
+        <button onclick="addName()">Click me</button>
+      </div>
     </div>
     <script>
+      function addToList() {
+        let listTextElement = document.querySelector("#listText");
+
+        // read the value from the input field
+        let listText = listTextElement.value;
+        if (listText.length == 0) {
+          return;
+        }
+
+        // create a new li element
+        let liElement = document.createElement("li");
+        // set id with value "example" to the li
+        liElement.setAttribute("id", "exampleId");
+        liElement.setAttribute("class", "exampleClass");
+        liElement.id = "exampleId";
+        liElement.className = "exampleClass";
+        liElement.style.backgroundColor = "yellow";
+
+        // add the listText to the li element
+        let text = document.createTextNode(listText);
+        liElement.appendChild(text);
+
+        // select the ul element where we want to add the new li element
+        let ulElement = document.querySelector("ul");
+        // add the new li element to the ul element
+        ulElement.appendChild(liElement);
+      }
+
       let addButton = document.querySelector("button");
       addButton.addEventListener("click", addPineapple);
 
       function addPineapple() {
         let pineappleListItem = document.createElement("li");
-        pineappleListItem.textContent = "Pineapple";
+        //pineappleListItem.textContent = "Pineapple";
+
+        // create text node
+        let textNode = document.createTextNode("Pineapple");
+        // add text node to li element
+        pineappleListItem.appendChild(textNode);
 
         let ulElement = document.querySelector("ul");
         ulElement.appendChild(pineappleListItem);
+      }
+
+      function addName() {
+        console.log("Test");
+        let nameElement = document.querySelector("#nameElement");
+        /*let name = document.createTextNode("Lasse");
+        nameElement.appendChild(name);*/
+        nameElement.innerHTML = "<div>Lasse</div>";
       }
     </script>
   </body>
