@@ -29,6 +29,10 @@
         font-size: 16px;
         color: rgb(133, 133, 133);
       }
+
+      body {
+        background-color: red;
+      }
     </style>
   </head>
   <body>
@@ -40,6 +44,30 @@
     <script>
       // write here JS code to create the dayWeather element
       // use createElement etc. methods
+
+      function createDayWeatherElement() {
+        const dayWeatherParent = document.createElement("div");
+        dayWeatherParent.className = "dayWeather";
+
+        const weatherIcon = document.createElement("div");
+        weatherIcon.className = "weatherIcon";
+
+        const temperature = document.createElement("div");
+        temperature.className = "temperature";
+        temperature.textContent = "-10 'C";
+
+        const date = document.createElement("div");
+        date.className = "date";
+        date.textContent = "Sat 18th";
+
+        dayWeatherParent.appendChild(weatherIcon);
+        dayWeatherParent.appendChild(temperature);
+        dayWeatherParent.appendChild(date);
+
+        document.querySelector("body").appendChild(dayWeatherParent);
+      }
+
+      createDayWeatherElement();
     </script>
   </body>
 </html>
