@@ -36,20 +36,81 @@
   </head>
   <body>
     <div class="weatherBoxContainer">
-      <div class="dayWeather">
+      <!--div class="dayWeather">
         <div class="weatherIcon">
           <img src="icons/icons8-cloud-80.png" />
         </div>
         <div class="temperature">-5 'C</div>
         <div class="date">Fri 17th</div>
-      </div>
+      </div-->
     </div>
 
     <script>
+      // Some fake weather data for 7 days
+      const weatherData = [
+        {
+          date: "17.02.2023",
+          temperature: 0,
+          windSpeed: 7,
+          windDirection: "N",
+          weather: "sunny",
+        },
+        {
+          date: "18.02.2023",
+          temperature: -5,
+          windSpeed: 8,
+          windDirection: "N",
+          weather: "cloudy",
+        },
+        {
+          date: "19.02.2023",
+          temperature: -10,
+          windSpeed: 9,
+          windDirection: "N",
+          weather: "snowy",
+        },
+        {
+          date: "20.02.2023",
+          temperature: -15,
+          windSpeed: 10,
+          windDirection: "N",
+          weather: "snowy",
+        },
+        {
+          date: "21.02.2023",
+          temperature: -20,
+          windSpeed: 11,
+          windDirection: "N",
+          weather: "sunny",
+        },
+        {
+          date: "22.02.2023",
+          temperature: -25,
+          windSpeed: 12,
+          windDirection: "N",
+          weather: "cloudy",
+        },
+        {
+          date: "23.02.2023",
+          temperature: -30,
+          windSpeed: 13,
+          windDirection: "N",
+          weather: "snowy",
+        },
+      ];
+
       // write here JS code to create the dayWeather element
       // use createElement etc. methods
 
-      function createDayWeatherElement() {
+      /*
+        weatherType values:
+        sunny
+        cloudy
+        rainy
+        snowy
+        partlyCloudy
+      */
+      function createDayWeatherElement(date, temperature, weatherType) {
         const dayWeatherParent = document.createElement("div");
         dayWeatherParent.className = "dayWeather";
 
@@ -57,27 +118,57 @@
         weatherIcon.className = "weatherIcon";
 
         const weatherIconImage = document.createElement("img");
-        weatherIconImage.src = "icons/icons8-cloud-80.png";
+        switch (weatherType) {
+          case "sunny":
+            weatherIconImage.src = "icons/icons8-sun-96.png";
+            break;
+          case "cloudy":
+            weatherIconImage.src = "icons/icons8-cloud-80.png";
+            break;
+          case "rainy":
+            weatherIconImage.src = "icons/icons8-light-rain-80.png";
+            break;
+          case "snowy":
+            weatherIconImage.src = "icons/icons8-snow-96.png";
+            break;
+          case "partlyCloudy":
+            weatherIconImage.src = "icons/icons8-partly-cloudy-day-80.png";
+            break;
+          default:
+            weatherIconImage.src = "icons/icons8-cloud-80.png";
+        }
+
         weatherIcon.appendChild(weatherIconImage);
 
-        const temperature = document.createElement("div");
-        temperature.className = "temperature";
-        temperature.textContent = "-10 'C";
+        const temperatureElement = document.createElement("div");
+        temperatureElement.className = "temperature";
+        temperatureElement.textContent = temperature + " 'C";
 
-        const date = document.createElement("div");
-        date.className = "date";
-        date.textContent = "Sat 18th";
+        const dateElement = document.createElement("div");
+        dateElement.className = "date";
+        dateElement.textContent = date;
 
         dayWeatherParent.appendChild(weatherIcon);
-        dayWeatherParent.appendChild(temperature);
-        dayWeatherParent.appendChild(date);
+        dayWeatherParent.appendChild(temperatureElement);
+        dayWeatherParent.appendChild(dateElement);
 
         document
           .querySelector(".weatherBoxContainer")
           .appendChild(dayWeatherParent);
       }
 
-      createDayWeatherElement();
+      /*createDayWeatherElement("17.02.2023", "+2", "sunny");
+      createDayWeatherElement("18.02.2023", "-2", "sunny");
+      createDayWeatherElement("19.02.2023", "-7", "cloudy");*/
+
+      for (let i = 0; i < weatherData.length; i++) {
+        const currentWeather = weatherData[i];
+        createDayWeatherElement(
+          currentWeather.date,
+          currentWeather.temperature,
+          currentWeather.weather
+        );
+      }
     </script>
   </body>
 </html>
