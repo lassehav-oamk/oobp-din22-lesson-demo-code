@@ -14,9 +14,6 @@
       }
 
       .weatherIcon {
-        width: 150px;
-        height: 150px;
-        background-color: rgb(59, 59, 59);
         margin: 20px;
       }
 
@@ -30,17 +27,24 @@
         color: rgb(133, 133, 133);
       }
 
-      body {
-        background-color: red;
+      .weatherBoxContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
       }
     </style>
   </head>
   <body>
-    <div class="dayWeather">
-      <div class="weatherIcon"></div>
-      <div class="temperature">-5 'C</div>
-      <div class="date">Fri 17th</div>
+    <div class="weatherBoxContainer">
+      <div class="dayWeather">
+        <div class="weatherIcon">
+          <img src="icons/icons8-cloud-80.png" />
+        </div>
+        <div class="temperature">-5 'C</div>
+        <div class="date">Fri 17th</div>
+      </div>
     </div>
+
     <script>
       // write here JS code to create the dayWeather element
       // use createElement etc. methods
@@ -51,6 +55,10 @@
 
         const weatherIcon = document.createElement("div");
         weatherIcon.className = "weatherIcon";
+
+        const weatherIconImage = document.createElement("img");
+        weatherIconImage.src = "icons/icons8-cloud-80.png";
+        weatherIcon.appendChild(weatherIconImage);
 
         const temperature = document.createElement("div");
         temperature.className = "temperature";
@@ -64,7 +72,9 @@
         dayWeatherParent.appendChild(temperature);
         dayWeatherParent.appendChild(date);
 
-        document.querySelector("body").appendChild(dayWeatherParent);
+        document
+          .querySelector(".weatherBoxContainer")
+          .appendChild(dayWeatherParent);
       }
 
       createDayWeatherElement();
