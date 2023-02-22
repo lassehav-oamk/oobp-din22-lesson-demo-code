@@ -11,7 +11,7 @@
 </div>
 */
 
-function createUserListElement(userName) {
+function createUserListElement(userName, email, profileImageUrl) {
   let userElement = document.createElement("div");
   userElement.className = "user";
 
@@ -19,10 +19,7 @@ function createUserListElement(userName) {
   profileImageElement.className = "profileImage";
 
   let imageElement = document.createElement("img");
-  imageElement.setAttribute(
-    "src",
-    "https://robohash.org/hicveldicta.png?size=50x50&set=set1"
-  );
+  imageElement.setAttribute("src", profileImageUrl);
 
   let userInfoElement = document.createElement("div");
   userInfoElement.className = "userInfo";
@@ -33,7 +30,7 @@ function createUserListElement(userName) {
 
   let emailElement = document.createElement("div");
   emailElement.className = "email";
-  emailElement.innerText = "someemail@some.com";
+  emailElement.innerText = email;
 
   // Set up the hierarchy
   userElement.appendChild(profileImageElement);
@@ -49,8 +46,14 @@ function createUserListElement(userName) {
   console.log("createUSerListElement finished");
 }
 
-createUserListElement("John");
-createUserListElement("Max");
-createUserListElement("Neville");
-createUserListElement("Susan");
-createUserListElement("Sally");
+fetch("https://dummyjson.com/users")
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);
+    //console.log("The first name of the first user in the array is");
+    //console.log(data.users[0].firstName);
+    for (let i = 0; i < data.users.length; i++) {
+      let thisUser = data.users[i];
+      createUserListElement();
+    }
+  });
