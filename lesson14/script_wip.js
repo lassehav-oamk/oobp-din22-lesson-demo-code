@@ -54,6 +54,11 @@ fetch("https://dummyjson.com/users")
     //console.log(data.users[0].firstName);
     for (let i = 0; i < data.users.length; i++) {
       let thisUser = data.users[i];
-      createUserListElement();
+      // call the function with the correct arguments from the user data
+      createUserListElement(
+        thisUser.firstName + " " + thisUser.lastName,
+        thisUser.email,
+        thisUser.image
+      );
     }
   });
