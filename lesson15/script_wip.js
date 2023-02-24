@@ -14,19 +14,18 @@
 function createUserListElement(userName, email, profileImageUrl) {
   let userElement = document.createElement("div");
   userElement.className = "user";
-  const test =
-    //userElement.addEventListener("click", clickOnUserListElement);
-    //userElement.addEventListener("click", clickOnUserListElement());
-    //userElement.addEventListener("click", () => clickOnUserListElement(userName));
-    userElement.addEventListener("click", () => {
-      console.log("click on user " + userName);
+  //userElement.addEventListener("click", clickOnUserListElement);
+  //userElement.addEventListener("click", clickOnUserListElement());
+  //userElement.addEventListener("click", () => clickOnUserListElement(userName));
+  userElement.addEventListener("click", () => {
+    console.log("click on user " + userName);
 
-      // First destroy the currently visible elements from the DOM
-      // -> Select the element which you want to destroy and then set its innerHTML to an empty string.
+    // First destroy the currently visible elements from the DOM
+    // -> Select the element which you want to destroy and then set its innerHTML to an empty string.
 
-      // Then create the new elements with JS required to show the user details
-      // The user details UI is visible in HTML, you can use that as an example
-    });
+    // Then create the new elements with JS required to show the user details
+    // The user details UI is visible in HTML, you can use that as an example
+  });
 
   let profileImageElement = document.createElement("div");
   profileImageElement.className = "profileImage";
